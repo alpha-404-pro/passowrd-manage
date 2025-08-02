@@ -3,6 +3,7 @@ Django==4.2.7
 
 # SQL Server support
 mssql-django
+django-mssql-backend==2.8.1
 pyodbc
 
 # Encryption
