@@ -1,0 +1,338 @@
+/* Main black theme styling */
+body {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container and main elements */
+.container {
+    background-color: #121212;
+}
+
+/* Card styling - black theme */
+.card {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333 !important;
+    color: #ffffff !important;
+}
+
+.card-header {
+    background-color: #2d2d2d !important;
+    border-bottom: 1px solid #333 !important;
+    color: #ffffff !important;
+}
+
+.card-body {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+.card-title {
+    color: #ffffff !important;
+}
+
+.card-text {
+    color: #ffffff !important;
+}
+
+/* Form controls - black theme */
+.form-control {
+    background-color: #2d2d2d !important;
+    border: 1px solid #444 !important;
+    color: #ffffff !important;
+}
+
+.form-control:focus {
+    background-color: #2d2d2d !important;
+    border-color: #007bff !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+.form-control::placeholder {
+    color: #888 !important;
+}
+
+/* Labels and text */
+.form-label {
+    color: #ffffff !important;
+}
+
+label {
+    color: #ffffff !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+}
+
+p {
+    color: #ffffff !important;
+}
+
+/* Button styling - black theme */
+.btn-primary {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+    border-color: #0056b3 !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268 !important;
+    border-color: #545b62 !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-secondary {
+    color: #6c757d !important;
+    border-color: #6c757d !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+    border-color: #6c757d !important;
+}
+
+.btn-outline-info {
+    color: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-info:hover {
+    background-color: #17a2b8 !important;
+    color: #ffffff !important;
+    border-color: #17a2b8 !important;
+}
+
+.btn-warning {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #000 !important;
+}
+
+.btn-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+/* Navbar - black theme */
+.navbar-dark {
+    background-color: #000 !important;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-text {
+    color: #ffffff !important;
+}
+
+/* Password field styling with courier font */
+.password-field {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    background-color: #2d2d2d !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+
+/* Password display with colored characters - BLACK BACKGROUND */
+.password-display {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    background-color: #2d2d2d !important;
+    border: 1px solid #444 !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+    color: #ffffff !important;
+    min-height: 38px !important;
+    word-break: break-all !important;
+    cursor: text !important;
+    user-select: none !important;
+}
+
+.password-display:focus {
+    outline: 2px solid #007bff !important;
+    outline-offset: -2px !important;
+    background-color: #2d2d2d !important;
+}
+
+/* Character type styling - ONLY for password display */
+.password-display .char-normal {
+    color: #ffffff !important;
+}
+
+.password-display .char-special {
+    color: #ff4444 !important;
+    font-weight: bold !important;
+}
+
+.password-display .char-numeric {
+    color: #4488ff !important;
+    font-weight: bold !important;
+}
+
+/* Hidden password field styling */
+.password-input-hidden {
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Password container */
+.password-container {
+    position: relative;
+}
+
+/* Cursor animation */
+.cursor-blink {
+    animation: blink 1s infinite;
+    color: #ffffff !important;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Input group styling */
+.input-group .btn {
+    border-left: none !important;
+}
+
+.input-group .form-control:focus + .btn,
+.input-group .form-control:focus ~ .btn {
+    border-color: #007bff !important;
+}
+
+/* Alert styling - black theme */
+.alert {
+    border-radius: 8px !important;
+    color: #ffffff !important;
+}
+
+.alert-success {
+    background-color: #155724 !important;
+    border-color: #155724 !important;
+    color: #ffffff !important;
+}
+
+.alert-danger {
+    background-color: #721c24 !important;
+    border-color: #721c24 !important;
+    color: #ffffff !important;
+}
+
+.alert-info {
+    background-color: #0c5460 !important;
+    border-color: #0c5460 !important;
+    color: #ffffff !important;
+}
+
+/* Form range (slider) */
+.form-range {
+    accent-color: #007bff !important;
+}
+
+/* Text styling */
+.text-muted {
+    color: #888 !important;
+}
+
+.text-danger {
+    color: #ff6b6b !important;
+}
+
+/* Password card styling */
+.password-card {
+    transition: transform 0.2s;
+    background-color: #1e1e1e !important;
+    border: 1px solid #333 !important;
+}
+
+.password-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.password-card .card-body {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+.password-hidden {
+    font-family: monospace !important;
+    letter-spacing: 2px !important;
+    color: #ffffff !important;
+}
+
+.card-actions {
+    border-top: 1px solid #333 !important;
+    padding-top: 15px !important;
+}
+
+/* Override any Bootstrap white backgrounds */
+.bg-white {
+    background-color: #1e1e1e !important;
+}
+
+.bg-light {
+    background-color: #2d2d2d !important;
+}
+
+/* Ensure all text stays white */
+* {
+    color: inherit;
+}
+
+/* Specific overrides for common elements */
+.list-group-item {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+    color: #ffffff !important;
+}
+
+.table {
+    color: #ffffff !important;
+    background-color: #1e1e1e !important;
+}
+
+.table th,
+.table td {
+    border-color: #333 !important;
+    color: #ffffff !important;
+}
+
+/* Modal styling if you use any */
+.modal-content {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+.modal-header {
+    border-bottom-color: #333 !important;
+}
+
+.modal-footer {
+    border-top-color: #333 !important;
+}

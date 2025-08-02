@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard – Password Manager{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Your Passwords</h1>
+    <a href="{% url 'add_password' %}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Add Password
+    </a>
+</div>
+
+{% if passwords %}
+<div class="row">
+  {% for password in passwords %}
+    <div class="col-md-6 col-lg-4 mb-3">
+      <div class="card password-card">
+        <div class="card-body">
+          <h5 class="card-title">
+              <i class="fas fa-globe"></i> {{ password.website_name }}
+          </h5>
+
+          <p class="card-text mb-2">
+              {% if password.username %}
+                  <strong>Username:</strong> {{ password.username }}<br>
+              {% else %}
+                  <strong>Username:</strong> <em class="text-muted">Not specified</em><br>
+              {% endif %}
+
+              <strong>Password:</strong>
+              <!-- bullets shown by default -->
+              <span id="pwd-{{ password.id }}" class="password-hidden">••••••••</span>
+
+              <!-- show / hide button -->
+              <button class="btn btn-sm btn-outline-secondary ms-2"
+                      onclick="togglePassword('{{ password.id }}')">
+                  <i class="fas fa-eye" id="eye-{{ password.id }}"></i>
+              </button>
+
+              <!-- copy button -->
+              <button class="btn btn-sm btn-outline-info ms-1"
+                      onclick="copyPassword('{{ password.id }}')">
+                  <i class="fas fa-copy"></i>
+              </button>
+          </p>
+
+          <div class="card-actions mt-3">
+              <a href="{% url 'edit_password' password.id %}" class="btn btn-sm btn-warning">
+                  <i class="fas fa-edit"></i> Edit
+              </a>
+              <form method="post" action="{% url 'delete_password' password.id %}"
+                    class="d-inline">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-sm btn-danger"
+                          onclick="return confirm('Are you sure?')">
+                      <i class="fas fa-trash"></i> Delete
+                  </button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+  <div class="text-center py-5">
+      <i class="fas fa-lock fa-5x text-muted mb-3"></i>
+      <h3>No passwords saved yet</h3>
+      <p class="text-muted">Start by adding your first password</p>
+      <a href="{% url 'add_password' %}" class="btn btn-primary">
+          <i class="fas fa-plus"></i> Add Your First Password
+      </a>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+/* -------------------------------------------------------------
+   SHOW / HIDE PASSWORD
+----------------------------------------------------------------*/
+function togglePassword(id) {
+  const span   = document.getElementById(`pwd-${id}`);
+  const eye    = document.getElementById(`eye-${id}`);
+
+  if (span.dataset.loaded === "true" && !span.classList.contains('password-hidden')) {
+      // hide
+      span.textContent = '••••••••';
+      span.classList.add('password-hidden');
+      eye.classList.replace('fa-eye-slash', 'fa-eye');
+  } else {
+      // fetch & show
+      fetch(`/get-password/${id}/`)
+        .then(r => r.json())
+        .then(({password}) => {
+            span.dataset.loaded = "true";
+            span.textContent    = password;
+            span.classList.remove('password-hidden');
+            eye.classList.replace('fa-eye', 'fa-eye-slash');
+        });
+  }
+}
+
+/* -------------------------------------------------------------
+   COPY PASSWORD TO CLIPBOARD
+----------------------------------------------------------------*/
+function copyPassword(id) {
+  fetch(`/get-password/${id}/`)
+    .then(r => r.json())
+    .then(({password}) => navigator.clipboard.writeText(password))
+    .then(() => {
+        const btn = event.target.closest('button');
+        const old = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i>';
+        btn.classList.replace('btn-outline-info', 'btn-success');
+        setTimeout(() => {
+            btn.innerHTML = old;
+            btn.classList.replace('btn-success', 'btn-outline-info');
+        }, 1000);
+    });
+}
+</script>
+{% endblock %}
