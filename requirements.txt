@@ -1,9 +1,8 @@
 # Core framework
 Django==4.2.7
 
-# SQL Server support
-mssql-django
-django-mssql-backend==2.8.1
+# SQL Server support (choose only ONE)
+mssql-django==1.4
 pyodbc
 
 # Encryption
