@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Use environment variables
 SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret-key-for-development')
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
+ALLOWED_HOSTS = ['.vercel.app']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -54,11 +54,11 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'NAME': 'password',
+        'USER': 'passworduser',
+        'PASSWORD': 'Baban@0225',
         'HOST': 'passwordanish.database.windows.net',
-        'PORT': os.getenv('DB_PORT', '1433'),
+        'PORT': '1433',
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
             'extra_params': 'Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;',
